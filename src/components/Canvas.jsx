@@ -4,31 +4,32 @@ let cw = 400;
 let ch = 400;
 let screen;
 let shader1;
-// let vs = `
-// attribute vec3 aPosition;
-// attribute vec2 aTextCoord;
+let shader2;
+let vs = `
+attribute vec3 aPosition;
+attribute vec2 aTextCoord;
 
-// varying vec2 vTextCoord;
+varying vec2 vTextCoord;
 
-//   void main() {
-//     vTexCoord = aTexCoord;
-//     vec4 positionVec4 = vec4(aPosition, 1.0);
-//     gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;
-//  }
-//  `;
-// let fs = `
-// #ifdef GL_ES
-// precision mediump float;
-// #endif
+  void main() {
+    vTextCoord = aTextCoord;
+    vec4 positionVec4 = vec4(aPosition, 1.0);
+    gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;
+ }
+ `;
+let fs = `
+#ifdef GL_ES
+precision mediump float;
+#endif
 
-// varying vec2 vTextCoord;
+varying vec2 vTextCoord;
 
-// uniform sampler2D texture;
-// uniform float noise;
-// void main() {
-// 	gl_FragColor = vec4(1.0,0.0,0.0,1.0);
-// }
-// `;
+uniform sampler2D texture;
+uniform float noise;
+void main() {
+	gl_FragColor = vec4(0.0,0.0,1.0,1.0);
+}
+`;
 
 export default function Canvas(props) {
   const [t, setT] = useState(0);
@@ -56,10 +57,10 @@ function setup(p5) {
     p5.createCanvas(cw, ch, p5.WEBGL);
     screen = p5.createGraphics(cw, ch);
     screen.background(255, 0, 0);
-    // shader1 = p5.createShader(vs, fs);
-    shader1.setUniform("texture", screen);
-    shader1.setUniform("noise", 0.0);
-    p5.shader(shader1);
+    shader2 = p5.createShader(vs, fs);
+    p5.shader(shader2);
+    shader2.setUniform("texture", screen);
+    shader2.setUniform("noise", 0.0);
   };
 }
 function preload(p5) {
@@ -72,9 +73,9 @@ function draw(p5) {
     //   screen.line(p5.mouseX, p5.mouseY, p5.pmouseX, p5.pmouseY);
     // }
 
-    // screen.rect(50, 50, 50, 50);
-    shader1.setUniform("texture", screen);
-    shader1.setUniform("noise", 0.0);
+    screen.rect(50, 50, 50, 50);
+    shader2.setUniform("texture", screen);
+    shader2.setUniform("noise", 0.0);
     p5.image(screen, -cw / 2, -ch / 2, cw, ch);
     // screen.fill(120);
     // shader1.setUniform("texture", screen);
@@ -88,4 +89,5 @@ function draw(p5) {
 function mousePressed(p5) {
   // console.log(p5.frameRate());
   console.log(shader1);
+  console.log(shader2);
 }

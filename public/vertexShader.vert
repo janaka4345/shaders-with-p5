@@ -5,7 +5,7 @@ varying vec2 vTextCoord;
 
 
   void main() {
-    vTexCoord = aTexCoord;
+    vTextCoord = aTextCoord;
     vec4 positionVec4 = vec4(aPosition, 1.0);
     gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;
  }
