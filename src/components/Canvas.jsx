@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ReactP5Wrapper } from "@p5-wrapper/react";
+let cw = 400;
+let ch = 400;
 
 export default function Canvas(props) {
   const [t, setT] = useState(0);
@@ -30,7 +32,7 @@ function setup(p5) {
 function preload(p5) {}
 function draw(p5) {
   return () => {
-    p5.background(0, 0, 0);
+    p5.background(255, 0, 0);
 
     // p5.noLoop();
   };
