@@ -4,7 +4,7 @@ import vs from "../shaders/vertex";
 import fs from "../shaders/fragment"; //basic 01 y=x
 import fs2 from "../shaders/fragment-2"; //y=x^n
 import fs3 from "../shaders/fragment-3"; //any function ddraw
-import fs4 from "../shaders/fragment-4"; //functions 02
+import fs4 from "../shaders/fragment-4"; //functions 02 -sine+cosine graph moving
 let cw = 400;
 let ch = 400;
 let screen;
