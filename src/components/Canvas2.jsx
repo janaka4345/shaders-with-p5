@@ -31,14 +31,14 @@ function setup(p5) {
   return () => {
     p5.pixelDensity(1);
     p5.createCanvas(cw, ch);
+
     screen = p5.createGraphics(cw, ch, p5.WEBGL);
-    // screen.background(0, 0, 255);
     myShader = p5.createShader(vs, fs);
-
     screen.shader(myShader);
-    p5.background(120);
-    myShader.setUniform("u_resolution", [cw, ch]);
 
+    p5.background(120);
+
+    myShader.setUniform("u_resolution", [cw, ch]);
     // shader.setUniform("texture", screen);
     // shader.setUniform("noise", 0.0);
   };
@@ -52,15 +52,16 @@ function preload(p5) {
 }
 function draw(p5) {
   return () => {
-    // console.log(screen.pmouseX, screen.pmouseY);
     myShader.setUniform("u_time", p5.millis() / 1000.0); // we divide millis by 1000 to convert it to seconds
     myShader.setUniform("u_mouse", [
       p5.mouseX,
       p5.map(p5.mouseY, 0, ch, ch, 0),
     ]); // we flip Y so it's oriented properly in our shader
+
     screen.rectMode(p5.CENTER);
     screen.rect(0, 0, 50, 50);
     // screen.circle(60, 60, 50);
+
     p5.imageMode(p5.CENTER);
     p5.image(screen, cw / 2, cw / 2, 200, 200, 0, 0, cw, ch);
     // p5.noLoop();
@@ -68,6 +69,5 @@ function draw(p5) {
 }
 function mousePressed(p5) {
   console.log(p5.frameRate());
-  // console.log(shader1);
   console.log(myShader);
 }
