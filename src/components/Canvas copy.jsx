@@ -2,7 +2,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { ReactP5Wrapper } from "@p5-wrapper/react";
 let cw = 400;
 let ch = 400;
-let shader;
+let screen;
+let shader1;
+let shader2;
 let vs = `
 #ifdef GL_ES
 
@@ -71,19 +73,38 @@ function setup(p5) {
     p5.pixelDensity(1);
     p5.createCanvas(cw, ch, p5.WEBGL);
     screen = p5.createGraphics(cw, ch);
-
-    shader = p5.createShader(vs, fs);
-
-    p5.shader(shader);
+    // p5.background(255, 0, 0);
+    shader2 = p5.createShader(vs, fs);
+    // p5.shader(shader1);
+    p5.shader(shader2);
+    // shader2.setUniform("texture", screen);
+    // shader2.setUniform("noise", 0.0);
   };
 }
-function preload(p5) {}
+function preload(p5) {
+  // shader1 = p5.loadShader("./vertexShader.vert", "./fragShader.frag");
+}
 function draw(p5) {
   return () => {
+    // if (p5.mouseIsPressed) {
+    //   screen.stroke(0, 255, 0);
+    //   screen.line(p5.mouseX, p5.mouseY, p5.pmouseX, p5.pmouseY);
+    // }
+
+    // p5.noStroke();
     p5.rect(10, 10, 50, 50);
+    // p5.image(screen, 0, 0);
+    // screen.fill(120);
+    // shader1.setUniform("texture", screen);
+    // shader1.setUniform("noise", 0);
+    // shader1.setUniform("u_time", p5.frameCount);
+    // p5.square(50, 50, 50);
+
+    // p5.noLoop();
   };
 }
 function mousePressed(p5) {
-  console.log(p5.frameRate());
-  console.log(shader);
+  // console.log(p5.frameRate());
+  // console.log(shader1);
+  console.log(shader2);
 }

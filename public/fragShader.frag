@@ -1,11 +1,16 @@
-// #ifdef GL_ES
-// precision mediump float;
-// #endif
+#ifdef GL_ES
 
-varying vec2 vTextCoord;
+precision mediump float;
 
-uniform sampler2D texture;
-uniform float noise;
+#endif
+
+
+
 void main() {
-	gl_FragColor = vec4(0.0,0.0,1.0,1.0);
+
+    // Make a blue color. In shaders, the RGB color goes from 0 - 1 instead of 0 - 255
+    vec3 color = vec3(0.0, 0.0, 1.0);
+
+    gl_FragColor = vec4(color, 1.0);
+
 }
