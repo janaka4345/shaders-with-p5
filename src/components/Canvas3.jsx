@@ -3,6 +3,7 @@ import { ReactP5Wrapper } from "@p5-wrapper/react";
 import vs from "../shaders/vertex";
 import fs from "../shaders/fragment"; //basic 01 y=x
 import fs2 from "../shaders/fragment-2"; //y=x^n
+import fs3 from "../shaders/fragment-3"; //any function ddraw
 let cw = 400;
 let ch = 400;
 let screen;
@@ -35,7 +36,8 @@ function setup(p5) {
 
     screen = p5.createGraphics(cw, ch, p5.WEBGL);
     // myShader = p5.createShader(vs, fs);
-    myShader = p5.createShader(vs, fs2);
+    // myShader = p5.createShader(vs, fs2);
+    myShader = p5.createShader(vs, fs3);
     screen.shader(myShader);
 
     p5.background(120);
