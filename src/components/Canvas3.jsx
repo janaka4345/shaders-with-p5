@@ -4,6 +4,7 @@ import vs from "../shaders/vertex";
 import fs from "../shaders/fragment"; //basic 01 y=x
 import fs2 from "../shaders/fragment-2"; //y=x^n
 import fs3 from "../shaders/fragment-3"; //any function ddraw
+import fs4 from "../shaders/fragment-4"; //functions 02
 let cw = 400;
 let ch = 400;
 let screen;
@@ -37,7 +38,8 @@ function setup(p5) {
     screen = p5.createGraphics(cw, ch, p5.WEBGL);
     // myShader = p5.createShader(vs, fs);
     // myShader = p5.createShader(vs, fs2);
-    myShader = p5.createShader(vs, fs3);
+    // myShader = p5.createShader(vs, fs3);
+    myShader = p5.createShader(vs, fs4);
     screen.shader(myShader);
 
     p5.background(120);
