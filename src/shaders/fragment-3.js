@@ -17,7 +17,7 @@ uniform vec2 u_mouse;
 
 
 float plot(vec2 st,float c){
-  //y+x^2-x-10=0 
+   
   return smoothstep(0.02,0.0,abs(st.y-c));
 }
 
@@ -27,7 +27,10 @@ void main() {
 
   vec2 st = gl_FragCoord.xy/u_resolution.xy;
 
-  float c=-(pow(st.x,2.0))+st.x+0.2;
+  //y+x^2-x-0.2=0
+  // float c=-(pow(st.x,2.0))+st.x+0.2;
+  // float c=step(0.5,st.x);
+  float c=smoothstep(0.2,0.8,st.x);
   vec3 color=vec3(c);
   float pct=plot(st,c);
 
