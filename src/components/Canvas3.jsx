@@ -75,5 +75,5 @@ function draw(p5) {
 }
 function mousePressed(p5) {
   console.log(p5.frameRate());
-  console.log(myShader);
+  // console.log(myShader);
 }
