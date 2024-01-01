@@ -7,7 +7,7 @@ let ch = 400;
 let screen;
 let myShader;
 
-export default function Canvas(props) {
+export default function Canvas2(props) {
   const [t, setT] = useState(0);
 
   return (
