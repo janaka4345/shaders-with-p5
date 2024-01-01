@@ -70,7 +70,6 @@ function setup(p5) {
   return () => {
     p5.pixelDensity(1);
     p5.createCanvas(cw, ch, p5.WEBGL);
-    screen = p5.createGraphics(cw, ch);
 
     shader = p5.createShader(vs, fs);
 
