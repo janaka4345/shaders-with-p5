@@ -7,7 +7,7 @@ import fs3 from "../shaders/fragment-3"; //any function ddraw
 import fs4 from "../shaders/fragment-4"; //functions 02 -sine+cosine graph moving
 import fs5 from "../shaders/fragment-5"; //functions 02 -
 import fs6 from "../shaders/lygiya"; //lygiya library test -
-import fs7 from "../shaders/fragment-7"; //colors+  -
+import fs7 from "../shaders/fragment-7"; //colors+  - color gradients with functions
 let cw = 400;
 let ch = 400;
 let screen;

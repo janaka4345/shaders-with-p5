@@ -29,7 +29,7 @@ void main() {
 
 // float pixelVal=plot(pixelCoord);//each pixel value 0 or 1 or  between 0-1
 // vec3 color=pixelVal*vec3(0.0,0.0,1.0);
-vec3 color=vec3(y,0.0,1.0-y);
+vec3 color=vec3(x+y,0.0,1.0-y-x);
 gl_FragColor = vec4(color, 1.0);
 
 }
