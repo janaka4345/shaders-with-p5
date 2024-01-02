@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@p5-wrapper/react": "^4.3.2",
+    "lygia": "^1.1.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "resolve-lygia": "^1.0.3",
     "vite-plugin-glsl": "^1.2.1"
   },
   "devDependencies": {
