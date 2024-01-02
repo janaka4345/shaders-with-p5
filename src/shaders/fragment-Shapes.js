@@ -22,14 +22,11 @@ void main() {
 
   vec2 pixelCoord = gl_FragCoord.xy/u_resolution.xy;
 
-  float x1=step(0.1,pixelCoord.x);
-  float y1=step(0.2,pixelCoord.y);
-  float x2=step(0.1,1.0-pixelCoord.x);
-  float y2=step(0.1,1.0-pixelCoord.y);
-//   vec2 c=vec2(x1*y1);
+  vec3 color=vec3(0);
 
-
-  vec3 color=vec3(x1*y1*x2*y2);
+  vec2 bl = step(vec2(0.05,0.1),pixelCoord);       // bottom-left
+  vec2 tr = step(vec2(0.88,0.6),1.0-pixelCoord);   // top-right
+  color = vec3(bl.x * bl.y * tr.x * tr.y);
 
 gl_FragColor = vec4(color, 1.0);
 
