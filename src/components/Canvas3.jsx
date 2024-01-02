@@ -10,6 +10,7 @@ import fs6 from "../shaders/lygiya"; //lygiya library test -
 import fs7 from "../shaders/fragment-7"; //colors+  - color gradients with functions
 import fsHSB from "../shaders/fragment-HSB"; //colors+  - color with HSB()
 import fsShapes from "../shaders/fragment-Shapes"; //colors+  - color with HSB()
+import fsShapes2 from "../shaders/fragment-Shapes-2"; //colors+  - color with HSB()
 let cw = 400;
 let ch = 400;
 let screen;
@@ -49,7 +50,8 @@ function setup(p5) {
     // myShader = p5.createShader(vs, fs6);
     // myShader = p5.createShader(vs, fs7);
     // myShader = p5.createShader(vs, fsHSB);
-    myShader = p5.createShader(vs, fsShapes);
+    // myShader = p5.createShader(vs, fsShapes);
+    myShader = p5.createShader(vs, fsShapes2);
     screen.shader(myShader);
 
     p5.background(120);
