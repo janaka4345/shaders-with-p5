@@ -23,6 +23,9 @@ float plot(vec2 pixelCoord){
 void main() {
 
   vec2 pixelCoord = gl_FragCoord.xy/u_resolution.xy;
+
+  //refer to function.png for function shapes
+  
   // float x=1.0-pow(abs(pixelCoord.x*2.0-1.0),0.5);
   float x=pow(cos(3.14*(pixelCoord.x*2.0-1.0)/2.0),2.0);
   float y=pow(cos(3.14*(pixelCoord.y*2.0-1.0)/2.0),2.0);
@@ -30,6 +33,8 @@ void main() {
 // float pixelVal=plot(pixelCoord);//each pixel value 0 or 1 or  between 0-1
 // vec3 color=pixelVal*vec3(0.0,0.0,1.0);
 vec3 color=vec3(x+y,0.0,1.0-y-x);
+
+
 gl_FragColor = vec4(color, 1.0);
 
 }
