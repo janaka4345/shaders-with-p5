@@ -7,7 +7,8 @@ import Canvas1 from "./components/Canvas1";//shaders seperate graphics  with wor
 import Canvas2 from "./components/Canvas2";//shaders seperate graphics  with working basic shader
 import Canvas3 from "./components/Canvas3";//book of shaders - functions 01
 import Canvas4 from "./components/Canvas4";//book of shaders - image pixel processing with shaders working
-import Canvas5Pixel from "./components/Canvas5Pixel";//book of shaders - image pixel processing with shaders working
+import Canvas5Pixel from "./components/Canvas5Pixel";//pixel shader blue print
+import Canvas6Pixel from "./components/Canvas6Pixel";//pixel shader play01
 function App(){
   return (
     <>
@@ -16,7 +17,8 @@ function App(){
        {/* <Canvas2/> */}
        {/* <Canvas3/> */}
        {/* <Canvas4/> */}
-       <Canvas5Pixel/>
+       {/* <Canvas5Pixel/> */}
+       <Canvas6Pixel/>
        
       
     </>
