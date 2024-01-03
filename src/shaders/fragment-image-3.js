@@ -52,9 +52,12 @@ void main() {
 
 //     st *= scale;
 //     st += radius * vec2(cos(angle),sin(angle));
-
+  // uv+=mod(u_time,u_resolution.x)*vec2(0.1);
     vec4 color=texture2D(u_image,uv);
-    // color=vec4(0.0,color.g,0.0,color.a);
+    // color=vec4(color.r,0.0,0.0,color.a);
+    color.r=abs(sin(u_time*0.5))*color.r;
+    color.g=abs(cos(u_time*0.5))*color.g;
+    color.b=0.0;
     gl_FragColor = color;
 
 }

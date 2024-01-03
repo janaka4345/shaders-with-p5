@@ -41,7 +41,7 @@ function setup(p5) {
   };
 }
 function preload(p5) {
-  img = p5.loadImage("./colorgrid.png");
+  img = p5.loadImage("./elephant.jpg");
 }
 function draw(p5) {
   return () => {
@@ -58,5 +58,5 @@ function draw(p5) {
 }
 function mousePressed(p5) {
   console.log(p5.frameRate());
-  console.log(myShader);
+  // console.log(myShader);
 }
