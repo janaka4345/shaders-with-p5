@@ -40,18 +40,21 @@ float noise (in vec2 st) {
 void main() {
 
   vec2 st = gl_FragCoord.xy/u_resolution.xy;
+  
 
-float scale = 2.0;
-    float offset = 0.5;
+// float scale = 2.0;
+//     float offset = 0.5;
 
-    float angle = noise( st + u_time * 0.1 )*3.14;
-    float radius = offset;
+//     float angle = noise( st + u_time * 0.1 )*3.14;
+//     float radius = offset;
 
-    st *= scale;
-    st += radius * vec2(cos(angle),sin(angle));
+//     st *= scale;
+//     st += radius * vec2(cos(angle),sin(angle));
 
     vec4 color=texture2D(u_image,st);
-    color=vec4(0.0,0.0,color.b,color.a);
+    // vec4 color=vec4(1.0,1.0,1.0,1.0);
+    color=vec4(0.0,color.g,0.0,color.a);
+    // gl_FragColor = vec4(0.0,0.0,0.0,1.0);
     gl_FragColor = color;
 
 }

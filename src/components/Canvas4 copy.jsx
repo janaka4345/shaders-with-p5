@@ -33,11 +33,12 @@ function setup(p5) {
     p5.pixelDensity(1);
     p5.createCanvas(cw, ch, p5.WEBGL);
 
-    screen = p5.createGraphics(cw, ch);
-    screen.background(255, 120, 50);
-    screen.image(img, 0, 0);
+    // screen = p5.createGraphics(cw, ch);
+    // screen.background(255, 120, 50);
+    // screen.image(img, 0, 0);
     myShader = p5.createShader(vs, fsimage);
     p5.shader(myShader);
+    p5.textureMode(p5.NORMAL);
 
     p5.background(255, 0, 0);
 
@@ -56,14 +57,24 @@ function draw(p5) {
       p5.map(p5.mouseY, 0, ch, ch, 0),
     ]); // we flip Y so it's oriented properly in our shader
 
-    // p5.rect(0, 0, 100, 100);
-    p5.imageMode(p5.CENTER);
-    p5.image(screen, cw / 2, cw / 2);
-    myShader.setUniform("u_image", screen);
+    // screen.rect(-100, -100, 200, 200);
+    myShader.setUniform("u_image", img);
+    // screen.circle(50, 50, 50);
+    p5.push();
+    // p5.texture(img);
+    p5.beginShape();
+    p5.vertex(-cw / 2, -ch / 2, 0, 0);
+    p5.vertex(cw / 2, -ch / 2, 1, 0);
+    p5.vertex(cw / 2, ch / 2, 1, 1);
+    p5.vertex(-cw / 2, ch / 2, 0, 1);
+    p5.endShape(p5.CLOSE);
+    p5.pop();
+    // p5.imageMode(p5.CENTER);
+    // p5.image(screen, cw / 2, cw / 2);
     // p5.noLoop();
   };
 }
 function mousePressed(p5) {
-  console.log(p5.frameRate());
+  console.log(p5);
   console.log(myShader);
 }
