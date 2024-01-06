@@ -10,6 +10,7 @@ import Canvas4 from "./components/Canvas4"; //book of shaders - image pixel proc
 import Canvas5Pixel from "./components/Canvas5Pixel"; //pixel shader blue print
 import Canvas6Pixel from "./components/Canvas6Pixel"; //pixel shader play01
 import Canvas7 from "./components/Canvas7"; //pixel shader play01
+import CanvasFrameBuffer from "./components/CanvasFrameBuffer"; //pixel shader play01
 function App() {
   return (
     <>
@@ -20,7 +21,8 @@ function App() {
       {/* <Canvas4/> */}
       {/* <Canvas5Pixel/> */}
       {/* <Canvas6Pixel /> */}
-      <Canvas7 />
+      {/* <Canvas7 /> */}
+      <CanvasFrameBuffer />
     </>
   );
 }
