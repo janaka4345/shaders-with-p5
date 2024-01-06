@@ -24,11 +24,11 @@ void main() {
     float pct=plot(st);
     vec3 color=vec3(st.x);
 
-    //  color=pct*vec3(0.0,0.0,1.0);
+     color=pct*vec3(0.0,0.0,1.0);
     // color=(1.0-pct)*color;
     // color=(1.0-pct)*color+pct*vec3(0.0,0.0,1.0);
     // color=(1.0-pct)*color+pct*vec3(1.0,0.0,1.0);
-    color=(1.0-pct)*color+pct*vec3(0.0,0.0,1.0);
+    // color=(1.0-pct)*color+pct*vec3(0.0,0.0,1.0);
 
     gl_FragColor = vec4(color, 1.0);
 

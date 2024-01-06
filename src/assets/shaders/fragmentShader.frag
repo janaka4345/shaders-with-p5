@@ -1,4 +1,4 @@
-const fs = `
+
 #ifdef GL_ES
 
 precision mediump float;
@@ -9,7 +9,7 @@ uniform vec2 u_resolution;
 uniform float u_time;
 uniform vec2 u_mouse;
 
-void plot(vec2 st){
+float plot(vec2 st){
   return smoothstep(0.02,0.0,abs(st.x-st.y));
 }
 
@@ -27,5 +27,3 @@ void main() {
 
 }
 
-`;
-export default fs;

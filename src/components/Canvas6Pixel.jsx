@@ -32,7 +32,7 @@ function setup(p5) {
   return () => {
     p5.pixelDensity(1);
     p5.createCanvas(cw, ch, p5.WEBGL);
-    myShader = p5.createShader(vs, fsimage3);
+    // myShader = p5.createShader(vs, fsimage3);
     p5.shader(myShader);
 
     p5.background(255, 0, 0);
@@ -41,7 +41,11 @@ function setup(p5) {
   };
 }
 function preload(p5) {
-  img = p5.loadImage("./elephant.jpg");
+  img = p5.loadImage("./colorgrid.png");
+  myShader = p5.loadShader(
+    "./src/assets/shaders/vertexShader.vert",
+    "./src/assets/shaders/fragment-image-3.frag"
+  );
 }
 function draw(p5) {
   return () => {
