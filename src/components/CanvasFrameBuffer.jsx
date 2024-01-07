@@ -67,14 +67,15 @@ function draw(p5) {
 
     // Draw the previous texture farther away, but scaled
     // up to fill the screen, plus a bit extra scale so it grows
-    p5.translate(10, 0, 0);
+    p5.translate(1, 0, 0);
     // p5.scale((1.001 * (200 + cam.eyeZ)) / cam.eyeZ);
     // p5.tint(255, 253);
     p5.image(prev, -cw / 2, -ch / 2);
     p5.pop();
 
-    for (let i = 0; i < ch / 10; i++) {
+    for (let i = 0; i < ch; i++) {
       p5.push();
+      p5.noStroke();
       // p5.fill(Math.random() * 255, Math.random() * 255, Math.random() * 255);
       // p5.translate(
       //   25 * Math.sin(p5.frameCount * 0.014),
@@ -83,7 +84,7 @@ function draw(p5) {
       // p5.rotate(p5.frameCount * 0.001);
       // p5.rotateY(p5.frameCount * 0.01);
       p5.fill(255, 0, 0);
-      p5.rect(-cw / 2, -ch / 2 + i * 10 + y, 10, 10);
+      p5.rect(-cw / 2, -ch / 2 + i + y, 1, 1);
       // p5.circle(0, 0, 20);
 
       p5.pop();
