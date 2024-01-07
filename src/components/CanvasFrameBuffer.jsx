@@ -52,35 +52,37 @@ function preload(p5) {
 }
 function draw(p5) {
   return () => {
+    p5.frameRate(1);
+    p5.background(255);
     // Swap prev and next so that we can use the previous
     // frame as a texture when drawing the current frame
     [prev, next] = [next, prev];
     // Draw to the framebuffer
     next.begin();
-    p5.background(255);
 
     p5.push();
+    p5.background(255);
     // Draw the previous texture farther away, but scaled
     // up to fill the screen, plus a bit extra scale so it grows
-    p5.translate(0, 0, -200);
+    p5.translate(10, 10, 0);
     // p5.scale((1.001 * (200 + cam.eyeZ)) / cam.eyeZ);
     // p5.tint(255, 253);
-    // p5.image(prev, -cw / 2, -ch / 2);
+    p5.image(prev, -cw / 2, -ch / 2);
     p5.pop();
-    for (let index = 0; index < 100; index++) {
-      p5.push();
-      // p5.fill(Math.random() * 255, Math.random() * 255, Math.random() * 255);
-      p5.translate(
-        25 * Math.sin(p5.frameCount * 0.014),
-        25 * Math.sin(p5.frameCount * 0.02)
-      );
-      p5.rotate(p5.frameCount * 0.01);
-      // p5.rotateY(p5.frameCount * 0.01);
-      p5.fill(255, 0, 0);
-      p5.rect(Math.random() * cw, Math.random() * ch, 50, 50);
 
-      p5.pop();
-    }
+    p5.push();
+    // p5.fill(Math.random() * 255, Math.random() * 255, Math.random() * 255);
+    // p5.translate(
+    //   25 * Math.sin(p5.frameCount * 0.014),
+    //   25 * Math.sin(p5.frameCount * 0.02)
+    // );
+    p5.rotate(p5.frameCount * 0.001);
+    // p5.rotateY(p5.frameCount * 0.01);
+    p5.fill(255, 0, 0);
+    p5.rect(0, 0, 50, 50);
+    // p5.circle(0, 0, 20);
+
+    p5.pop();
 
     next.end();
 
@@ -90,7 +92,8 @@ function draw(p5) {
   };
 }
 function mousePressed(p5) {
-  console.log(p5.frameRate());
   // console.log(next);
+  console.log(p5.frameRate());
+  // console.log(prev);
   // console.log(myShader);
 }
