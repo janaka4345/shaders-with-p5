@@ -5,7 +5,7 @@ import vs from "../shaders/vertex";
 // import fsimage3 from "../shaders/fragment-image-3"; //image processing with shaders working
 // import fs8 from "../shaders/fragment-8"; //multiple verteces with shaders attached
 // import fs from "../shaders/fragment";
-import fsNoise from "../shaders/fragment-noise"; // shaders with noise test
+import fsNoise2 from "../shaders/fragment-noise2"; // shaders with noise test
 
 let cw = 400;
 let ch = 400;
@@ -38,17 +38,17 @@ function setup(p5) {
   return () => {
     p5.pixelDensity(1);
     p5.createCanvas(cw, ch, p5.WEBGL);
-    myShader = p5.createShader(vs, fsNoise);
+    myShader = p5.createShader(vs, fsNoise2);
     p5.shader(myShader);
     p5.background(255, 120, 0);
     myShader.setUniform("u_resolution", [cw, ch]);
-    myShader.setUniform("u_image", img);
+    // myShader.setUniform("u_image", img);
     myShader.setUniform("u_noiseimage", noiseImage);
   };
 }
 function preload(p5) {
   // img = p5.loadImage("./colorgrid.png");
-  img = p5.loadImage("./elephant.jpg");
+  // img = p5.loadImage("./elephant.jpg");
   // noiseImage = p5.loadImage("./patternNoise.jpg");
   noiseImage = p5.loadImage("./perlinNoise.jpg");
   // myShader = p5.loadShader(
@@ -58,7 +58,7 @@ function preload(p5) {
 }
 function draw(p5) {
   return () => {
-    myShader.setUniform("u_image", img);
+    // myShader.setUniform("u_image", img);
     myShader.setUniform("u_noiseimage", noiseImage);
     myShader.setUniform("u_time", p5.millis() / 1000.0); // we divide millis by 1000 to convert it to seconds
     // myShader.setUniform("u_mouse", [

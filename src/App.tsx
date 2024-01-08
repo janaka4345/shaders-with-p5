@@ -11,7 +11,8 @@ import Canvas5Pixel from "./components/Canvas5Pixel"; //pixel shader blue print
 import Canvas6Pixel from "./components/Canvas6Pixel"; //pixel shader play01
 import Canvas7 from "./components/Canvas7"; //pixel shader play01
 import CanvasFrameBuffer from "./components/CanvasFrameBuffer"; //pixel shader play01
-import CanvasNoise from "./components/CanvasNoise"; //pixel shader play01
+import CanvasNoise from "./components/CanvasNoise"; //pixel moving according to perlin noise
+import CanvasNoise2 from "./components/CanvasNoise2"; //pixel moving according to perlin noise
 function App() {
   return (
     <>
@@ -24,7 +25,8 @@ function App() {
       {/* <Canvas6Pixel /> */}
       {/* <Canvas7 /> */}
       {/* <CanvasFrameBuffer /> */}
-      <CanvasNoise />
+      {/* <CanvasNoise /> */}
+      <CanvasNoise2 />
     </>
   );
 }
