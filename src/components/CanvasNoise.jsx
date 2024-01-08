@@ -57,7 +57,8 @@ function preload(p5) {
 }
 function draw(p5) {
   return () => {
-    // myShader.setUniform("u_noiseimage", noiseImage);
+    myShader.setUniform("u_image", img);
+    myShader.setUniform("u_noiseimage", noiseImage);
     myShader.setUniform("u_time", p5.millis() / 1000.0); // we divide millis by 1000 to convert it to seconds
     // myShader.setUniform("u_mouse", [
     //   p5.mouseX,
