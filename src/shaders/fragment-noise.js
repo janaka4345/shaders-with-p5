@@ -19,10 +19,11 @@ void main() {
   vec2 uv=st;
   uv.y=1.0-st.y;
   
-    vec4 color1=texture2D(u_noiseimage,uv);
-    vec4 color2=texture2D(u_image,uv);
+    vec4 noise=texture2D(u_noiseimage,uv);
+    vec4 picture=texture2D(u_image,uv+noise.r*0.1);
     
-    gl_FragColor = color1*color2;
+    // gl_FragColor = noise*picture;
+    gl_FragColor = picture;
 
 }
 

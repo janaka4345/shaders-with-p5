@@ -40,14 +40,16 @@ function setup(p5) {
     p5.createCanvas(cw, ch, p5.WEBGL);
     myShader = p5.createShader(vs, fsNoise);
     p5.shader(myShader);
-
+    p5.background(255, 120, 0);
     myShader.setUniform("u_resolution", [cw, ch]);
+    myShader.setUniform("u_image", img);
+    myShader.setUniform("u_noiseimage", noiseImage);
   };
 }
 function preload(p5) {
   img = p5.loadImage("./colorgrid.png");
-  noiseImage = p5.loadImage("./patternNoise.jpg");
-  // noiseImage = p5.loadImage("./perlinNoise.jpg");
+  // noiseImage = p5.loadImage("./patternNoise.jpg");
+  noiseImage = p5.loadImage("./perlinNoise.jpg");
   // myShader = p5.loadShader(
   //   "./src/assets/shaders/vertexShader.vert",
   //   "./src/assets/shaders/fragment-image-3.frag"
@@ -55,9 +57,6 @@ function preload(p5) {
 }
 function draw(p5) {
   return () => {
-    p5.background(255, 0, 0);
-    myShader.setUniform("u_image", img);
-    myShader.setUniform("u_noiseimage", noiseImage);
     // myShader.setUniform("u_noiseimage", noiseImage);
     myShader.setUniform("u_time", p5.millis() / 1000.0); // we divide millis by 1000 to convert it to seconds
     // myShader.setUniform("u_mouse", [
