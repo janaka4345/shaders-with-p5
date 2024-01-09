@@ -71,6 +71,7 @@ function draw(p5) {
 }
 function mousePressed(p5) {
   console.log(p5.frameRate());
+  console.log(p5.millis() / 1000);
   // console.log(p5);
   // console.log(myShader);
 }

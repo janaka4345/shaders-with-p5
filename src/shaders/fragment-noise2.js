@@ -1,5 +1,4 @@
-const fsNoise2
-  = `
+const fsNoise2 = `
 #ifdef GL_ES
 
 precision mediump float;
@@ -14,8 +13,8 @@ uniform sampler2D u_noiseimage;
 varying vec2 vTexCoord;
 
 
-float circle(vec2 position, float radius){
-    return step(radius, length(position - vec2(0.5)));
+float circle(vec2 position,vec2 center, float radius){
+    return step(radius, length(position - center));
 }
 
 void main() {
@@ -25,12 +24,17 @@ void main() {
   uv.y=1.0-st.y;
   
     vec4 noise=texture2D(u_noiseimage,uv);
-    float circleshape=circle(uv-vec2(noise.r*u_time*0.1,noise.g*u_time*0.1),0.1);
+    // float circleshape=circle(uv-vec2(noise.r*u_time*0.1,noise.g*u_time*0.1),0.5);
+    vec2 offset=vec2(0.3,abs(sin(u_time*0.2)));
+
+
+    offset+=vec2(noise.r*0.5,noise.g*0.5);
+    
+  
+    float circleshape=circle(uv,offset,0.01);
    
-    gl_FragColor = vec4(circleshape,0.0,0.0,1.0);
+    gl_FragColor = vec4(circleshape,0.0,0.0,1.0)+noise;
 
 }
-
 `;
-export default fsNoise2
-  ;
+export default fsNoise2;
